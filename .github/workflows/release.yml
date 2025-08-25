@@ -4,6 +4,13 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag to build'
+        required: false
+        default: 'v7.53.4-osCASH-test3'
+        type: string
   workflow_call:
     inputs:
       version:
