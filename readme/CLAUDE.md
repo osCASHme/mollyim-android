@@ -10,13 +10,13 @@
 # Erste 60 Sekunden - Context Loading Protocol:
 
 # 1. Session Summary lesen (PRIORITÄT 1)
-cat /home/mayer/prog/claude/osCASH.me/mollyim-android/SESSION_SUMMARY_2025-08-27.md
+cat /home/mayer/prog/claude/osCASH.me/mollyim-android/readme/SESSION_SUMMARY_2025-08-27.md
 
 # 2. Critical Fixes checken (PRIORITÄT 2) 
-cat /home/mayer/prog/claude/osCASH.me/mollyim-android/osCASH-CRITICAL-FIXES.md
+cat /home/mayer/prog/claude/osCASH.me/mollyim-android/readme/osCASH-CRITICAL-FIXES.md
 
 # 3. Diese Datei (CLAUDE.md) scannen (PRIORITÄT 3)
-cat /home/mayer/prog/claude/osCASH.me/mollyim-android/CLAUDE.md
+cat /home/mayer/prog/claude/osCASH.me/mollyim-android/readme/CLAUDE.md
 
 # 4. Aktueller Release-Status (PRIORITÄT 4)
 gh release view --repo osCASHme/mollyim-android
