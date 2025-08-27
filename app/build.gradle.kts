@@ -93,7 +93,11 @@ android {
         storePassword = System.getenv("CI_KEYSTORE_PASSWORD")
         keyAlias = System.getenv("CI_KEYSTORE_ALIAS")
         keyPassword = System.getenv("CI_KEYSTORE_PASSWORD")
-        enableV4Signing = false
+        // Match original Molly signing schema exactly
+        enableV1Signing = false  // Original Molly uses v2+v3 only
+        enableV2Signing = true   // APK signing scheme v2 (required)
+        enableV3Signing = true   // APK signing scheme v3 (required) 
+        enableV4Signing = false  // Disabled like original Molly
       }
     }
   }
