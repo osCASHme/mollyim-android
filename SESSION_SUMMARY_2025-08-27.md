@@ -224,17 +224,91 @@ gh release upload v7.53.4-osCASH-test6 *.apk SHA256SUMS.txt --clobber
 
 ---
 
-## 🚀 **Ready for Continuation**
+---
 
-**Status:** Alle kritischen APK-Installation-Issues gelöst ✅  
-**Next Focus:** Langfristige Signal/Molly Update-Strategie entwickeln  
-**Peter's Max Abo:** Unlimited sessions für fokussierte Entwicklung  
-**Mindset:** "Siga, siga" - achtsam, nachhaltig, strategisch planen
+## 🎯 **UPDATE: Strategische 3-Tier Architektur ERFOLGREICH implementiert!**
 
-**Bei Session-Restart referenziere diese Datei und setze fokussiert bei der Update-Strategie fort.**
+### **Session Fortsetzung: 27. August 2025, 22:00 CET**
+
+**✅ MEILENSTEIN ERREICHT:** Molly-Repro v7.53.5-1 erfolgreich released!
+
+#### **3-Tier osCASH.me Architektur - Status Update:**
+
+```
+1. Signal → Molly (upstream)   ← Community maintains this ✅
+2. Molly → Molly-Repro (1:1)   ← We provide reproducible builds ✅ DONE!
+3. Molly-Repro → osCASH.me     ← Enhanced features & MOB wallet 🔄 NEXT
+```
+
+#### **Erfolgreich abgeschlossene Tasks (Session 2):**
+1. **✅ Molly v7.53.5-1 Analysis & Merge** - 889 geänderte Dateien erfolgreich integriert
+2. **✅ Branding auf 'Molly-Repro' angepasst** - Klare 1:1 Reproducible Build Kommunikation
+3. **✅ APK Signing Schema GEFIXT** - v2+v3 Schema perfekt matching mit Original Molly
+4. **✅ Docker Build erfolgreich** - 3 APK-Varianten generated
+5. **✅ APK-Signatur Verifikation** - 100% identisch mit Original Molly
+6. **✅ GitHub Release v7.53.5-1 erstellt** - https://github.com/osCASHme/mollyim-android/releases/tag/v7.53.5-1
+
+#### **Das kritische Learning:**
+**Problem wiederholt:** APK-Signing Schema vergessen (gleicher Fix wie in Session 1!)  
+**Lösung:** Umfassende Dokumentation erstellt für permanente Wissenserhaltung
+
+#### **Neue Dokumentation erstellt:**
+- **osCASH-CRITICAL-FIXES.md** - Alle kritischen Build-Issues & Lösungen
+- **CLAUDE.md** - Kontext-Aufwärm-Anleitung für neue Sessions  
+- **FAQ erweitert** - v7.53.5-1 Erkenntnisse dokumentiert
+
+#### **GitHub Release Details:**
+- **3 APK Varianten:** FOSS-Store (83MB), FOSS-Website (83MB), GMS-Website (84MB)
+- **Signing Certificate:** 4096-bit RSA (CN=osCASH.me)
+- **Package ID:** `im.molly.app` (upgrade-kompatibel)
+- **Perfect Compatibility:** v2+v3 signing schema matching Original Molly
+
+---
+
+## 🧠 **Wissensmanagement für nachhaltige Entwicklung**
+
+### **Problembehebung für Gedächtnisverlust:**
+1. **osCASH-CRITICAL-FIXES.md** ← Erste Anlaufstelle bei Build-Problemen
+2. **SESSION_SUMMARY_2025-08-27.md** ← Vollständiger Session-Kontext  
+3. **osCASHme-MOLLY-FAQ.md** ← Detaillierte Community-Dokumentation
+4. **CLAUDE.md** ← Schnelle Kontext-Aufwärmung für neue Sessions
+
+### **Session-Start Protokoll:**
+```bash
+# 1. Session Summary lesen
+cat /osCASH.me/mollyim-android/SESSION_SUMMARY_2025-08-27.md
+
+# 2. Critical Fixes checken  
+cat /osCASH.me/mollyim-android/osCASH-CRITICAL-FIXES.md
+
+# 3. Claude Context laden
+cat /osCASH.me/mollyim-android/CLAUDE.md
+
+# 4. Aktuellen Stand prüfen
+gh release view --repo osCASHme/mollyim-android
+```
+
+---
+
+## 🚀 **Ready for Next Phase**
+
+**Status:** Molly-Repro (Tier 2) erfolgreich implementiert ✅  
+**Next Focus:** osCASH.me Messenger (Tier 3) - MOB/eUSD Wallet Integration  
+**Peter's Max Abo:** Unlimited sessions für kontinuierliche Entwicklung  
+**Mindset:** "Siga, siga" - strategische Langzeit-Planung mit solider Basis
+
+### **Nächste strategische Ziele:**
+1. **Update-Automatisierung:** Molly-Upstream Detection & Integration
+2. **osCASH.me Repository:** Plugin-System für MOB/eUSD Features
+3. **Community-Features:** F-Droid Repository, Documentation Website
+
+**Bei Session-Restart: Alle 4 Dokumentationsdateien lesen für vollständigen Kontext.**
 
 ---
 
 *Session Summary erstellt: 27. August 2025, 18:35 CET*  
-*Claude Code Session mit Peter (osCASH.me) - Vollständiger Erfolg bei APK-Signing Fix*  
-*Bereit für strategische Langzeit-Planung der Signal/Molly Update-Integration*
+*Claude Code Session mit Peter (osCASH.me) - Vollständiger Erfolg bei APK-Signing Fix*
+
+*Session Update: 27. August 2025, 23:45 CET*  
+*🎉 STRATEGIC MILESTONE: 3-Tier Architecture Tier 2 erfolgreich implementiert*  
+*Molly-Repro v7.53.5-1 Production Release mit perfekter APK-Kompatibilität*

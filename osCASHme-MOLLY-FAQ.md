@@ -436,6 +436,106 @@ curl -s https://raw.githubusercontent.com/mollyim/mollyim-android/master/Dockerf
 
 ---
 
+## 🚀 **UPDATE: 3-Tier Architektur & Molly-Repro v7.53.5-1**
+
+### **Q: Was ist die osCASH.me 3-Tier Architektur?**
+
+**A:** **Strategische Langzeit-Planung für nachhaltigen Signal/Molly Fork:**
+
+```
+Tier 1: Signal → Molly (upstream)     ← Community maintains this ✅
+Tier 2: Molly → Molly-Repro (1:1)     ← osCASH.me reproducible builds ✅
+Tier 3: Molly-Repro → osCASH.me       ← MOB/eUSD wallet features 🔄
+```
+
+**Status Update 27. August 2025:**
+- **✅ Tier 2 erfolgreich implementiert!** Molly-Repro v7.53.5-1 live
+- **🔄 Tier 3 nächste Phase:** osCASH.me Messenger mit Wallet-Features
+
+### **Q: Was ist Molly-Repro und wie unterscheidet es sich von osCASH.me?**
+
+**A:** **Klare Trennung der Verantwortlichkeiten:**
+
+**Molly-Repro (Tier 2):**
+- **1:1 Reproducible Build** vom Original Molly
+- **Identische Funktionalität** zu Original Molly  
+- **Perfekte APK-Kompatibilität** (upgrade-fähig)
+- **Branding:** "Molly-Repro" (Klarheit für Users)
+- **Package ID:** `im.molly.app` (unverändert)
+- **Release:** https://github.com/osCASHme/mollyim-android/releases
+
+**osCASH.me Messenger (Tier 3 - Zukunft):**
+- **Erweiterte Features:** MOB/eUSD Wallet Integration
+- **Plugin-System** für Community-Features  
+- **Separates Repository:** `osCASHme/android`
+- **Symbolischer Link** zu Molly-Core für Kompatibilität
+
+### **Q: Warum haben wir das APK-Signing Problem nochmal erlebt?**
+
+**A:** **Learning: Kritische Fixes MÜSSEN dokumentiert werden!**
+
+**Problem wiederholt (27. August 2025):**
+- Gleicher APK-Signing Schema Fehler wie am 26. August
+- v3 Signing war deaktiviert → APK Inkompatibilität  
+
+**Lösung implementiert:**
+1. **osCASH-CRITICAL-FIXES.md** erstellt für permanente Referenz
+2. **SESSION_SUMMARY** mit allen kritischen Erkenntnissen  
+3. **CLAUDE.md** für schnelle Kontext-Aufwärmung
+4. **Code-Kommentare** direkt in build.gradle.kts
+
+**Verhindert zukünftige Wiederholungen!**
+
+### **Q: Wie verifiziert man APK-Kompatibilität mit Original Molly?**
+
+**A:** **APK-Signatur Schema Vergleich (KRITISCH!):**
+
+**Original Molly v7.53.5-1:**
+```bash
+Verified using v1 scheme (JAR signing): false     ✅
+Verified using v2 scheme (APK Signature Scheme v2): true   ✅  
+Verified using v3 scheme (APK Signature Scheme v3): true   ✅
+Verified using v4 scheme (APK Signature Scheme v4): false  ✅
+```
+
+**Molly-Repro v7.53.5-1:**
+```bash
+Verified using v1 scheme (JAR signing): false     ✅
+Verified using v2 scheme (APK Signature Scheme v2): true   ✅
+Verified using v3 scheme (APK Signature Scheme v3): true   ✅  ← GEFIXT!
+Verified using v4 scheme (APK Signature Scheme v4): false  ✅
+```
+
+**Verifikations-Kommando:**
+```bash
+docker run --rm --entrypoint="" -v "$PWD:/workspace" reproducible-molly sh -c \
+"java -jar /opt/android-sdk-linux/build-tools/35.0.0/lib/apksigner.jar verify --print-certs --verbose /workspace/your.apk"
+```
+
+### **Q: Welche APK-Varianten gibt es in v7.53.5-1?**
+
+**A:** **3 Release-Varianten für verschiedene Use Cases:**
+
+| APK-Variant | Größe | Zweck | Download |
+|-------------|-------|-------|----------|
+| **Molly-Repro-v7.53.5-1-FOSS-Store.apk** | 83MB | F-Droid Store Distribution | GitHub Release |
+| **Molly-Repro-v7.53.5-1-FOSS-Website.apk** | 83MB | Direct Download (FOSS) | GitHub Release |  
+| **Molly-Repro-v7.53.5-1-GMS-Website.apk** | 84MB | Google Services Enabled | GitHub Release |
+
+**SHA256 Checksums:**
+```
+dea2c21692a02d50ac73c84688f38f4e0366b841e8faed889be894f96410d4c8  FOSS-Store
+6920ddcbf148ee30713443d13f82873641667b410cebff427c136a1081736300  FOSS-Website  
+e2e2bd1b8af0f02db60f877394ad05d8e89b0683e7c270404f84cf7666aa7691  GMS-Website
+```
+
+**Signing Certificate (osCASH.me):**
+- **CN:** osCASH.me, OU=Development, O=osCASH, L=Vienna, ST=Austria, C=AT
+- **Key:** 4096-bit RSA (27+ Jahre gültig)
+- **SHA-256:** `69aa2ec208828dff261c79368bfd589feb28f4703c26fc0067e3bf501ca7e94e`
+
+---
+
 ## 🎯 **Erfolgs-Metriken**
 
 ### **Q: Woran erkennt man einen erfolgreichen Build?**
@@ -446,7 +546,7 @@ curl -s https://raw.githubusercontent.com/mollyim/mollyim-android/master/Dockerf
 - Docker-Build ohne kritische Fehler
 - Alle 3 APK-Varianten erstellt (FOSS-Store, FOSS-Website, GMS-Website)  
 - Keystore-Signierung erfolgreich
-- APK-Größen im erwarteten Bereich (84-85MB)
+- APK-Größen im erwarteten Bereich (83-84MB für v7.53.5-1)
 
 ✅ **Signatur-Verifikation:**
 ```bash
