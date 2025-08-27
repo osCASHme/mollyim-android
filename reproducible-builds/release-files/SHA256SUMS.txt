@@ -1,0 +1,3 @@
+e9944e339376048cbf9d3475dd62d6f4fdb23c8cdc5c66b8834a9766763fc355  osCASH-v7.53.4-test6-FOSS-Store.apk
+94da72c03bf69bcc29d5311799ed767d9eb858c4d236aae0d6b0f7a9fd985ccf  osCASH-v7.53.4-test6-FOSS-Website.apk
+459723f5bd583d88073e2c814fab1f13dfe8f82d40f2ad6873b50b2610daeebb  osCASH-v7.53.4-test6-GMS-Website.apk

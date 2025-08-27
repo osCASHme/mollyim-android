@@ -611,26 +611,32 @@ fun getGitHash(): String {
 }
 
 fun getCommitTag(): String {
-  assertIsGitRepo()
-
-  val tag = providers.exec {
-    commandLine("git", "describe", "--tags", "--exact-match")
-  }.standardOutput.asText.get().trim()
-
-  return tag.takeIf { it.isNotEmpty() } ?: "untagged"
+  return try {
+    assertIsGitRepo()
+    val tag = providers.exec {
+      commandLine("git", "describe", "--tags", "--exact-match")
+    }.standardOutput.asText.get().trim()
+    tag.takeIf { it.isNotEmpty() } ?: "untagged"
+  } catch (e: Throwable) {
+    logger.warn("Failed to get Git commit tag: ${e.message}. Using default value.")
+    "untagged"
+  }
 }
 
 fun getCurrentGitTag(): String? {
-  assertIsGitRepo()
-
-  val output = providers.exec {
-    commandLine("git", "tag", "--points-at", "HEAD")
-  }.standardOutput.asText.get().trim()
-
-  return if (output.isNotEmpty()) {
-    val tags = output.split("\n").toList()
-    tags.firstOrNull { it.contains("nightly") } ?: tags[0]
-  } else {
+  return try {
+    assertIsGitRepo()
+    val output = providers.exec {
+      commandLine("git", "tag", "--points-at", "HEAD")
+    }.standardOutput.asText.get().trim()
+    if (output.isNotEmpty()) {
+      val tags = output.split("\n").toList()
+      tags.firstOrNull { it.contains("nightly") } ?: tags[0]
+    } else {
+      null
+    }
+  } catch (e: Throwable) {
+    logger.warn("Failed to get current Git tag: ${e.message}. Using null value.")
     null
   }
 }
