@@ -50,10 +50,28 @@ class PaymentsValues internal constructor(store: KeyValueStore) : SignalStoreVal
   }
 
   /**
+   * Returns the complete payment availability status including local settings, 
+   * feature flags and region restrictions for osCASH.me.
+   * 
+   * osCASH.me Enhancement: Always enabled for WITHDRAW_AND_SEND to activate MOB payments.
+   */
+  fun getPaymentsAvailability(): PaymentsAvailability {
+    // osCASH.me: Enable MOB payments by default for our enhanced messaging experience
+    if (!mobileCoinPaymentsEnabled()) {
+      return PaymentsAvailability.REGISTRATION_AVAILABLE
+    }
+    
+    // osCASH.me: Full payment capabilities enabled
+    return PaymentsAvailability.WITHDRAW_AND_SEND
+  }
+
+  /**
    * Consider using [.getPaymentsAvailability] which includes feature flag and region status.
+   * 
+   * osCASH.me Enhancement: MOB payments enabled by default (true instead of false).
    */
   fun mobileCoinPaymentsEnabled(): Boolean {
-    return getBoolean(MOB_PAYMENTS_ENABLED, false)
+    return getBoolean(MOB_PAYMENTS_ENABLED, true)
   }
 
   /**

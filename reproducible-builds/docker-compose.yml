@@ -18,3 +18,12 @@ services:
       - CI_KEYSTORE_PATH
       - CI_KEYSTORE_PASSWORD
       - CI_KEYSTORE_ALIAS
+
+  keystore:
+    image: reproducible-molly
+    build:
+      context: ..
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["keytool -genkey -v -keystore /molly/app/certs/osCASH-release.keystore -alias oscash-key -keyalg RSA -keysize 2048 -validity 10000 -storepass 'osCASH2025Release!' -keypass 'osCASH2025Release!' -dname 'CN=osCASH.me, OU=osCASH Development, O=osCASH.me, L=Blockchain, S=Crypto, C=WW'"]
+    volumes:
+      - ./certs:/molly/app/certs
