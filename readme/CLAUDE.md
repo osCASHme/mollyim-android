@@ -4,13 +4,23 @@
 
 ---
 
+## ⚠️ **IMPORTANT: Cross-Repository Context (2025-08-28)**
+
+**Primary Development**: Now happening in **osCASHme/android** (Tier 3)  
+**This Repository**: osCASHme/mollyim-android (Molly-Repro foundation)  
+**Relationship**: osCASHme/android uses this repo via `molly-core` symlink
+
+**For Tier 3 work**: Check `osCASHme/android/readme/CLAUDE.md` first!  
+**For Molly base**: Continue with this guide below.
+
 ## 🚀 **Quick Start für neue Sessions**
 
 ```bash
 # Erste 60 Sekunden - Context Loading Protocol:
 
 # 1. Session Summary lesen (PRIORITÄT 1)
-cat /home/mayer/prog/claude/osCASH.me/mollyim-android/readme/SESSION_SUMMARY_2025-08-27.md
+cat /home/mayer/prog/claude/osCASH.me/mollyim-android/readme/SESSION_SUMMARY_2025-08-28.md  # LATEST
+cat /home/mayer/prog/claude/osCASH.me/mollyim-android/readme/SESSION_SUMMARY_2025-08-27.md  # Previous
 
 # 2. Critical Fixes checken (PRIORITÄT 2) 
 cat /home/mayer/prog/claude/osCASH.me/mollyim-android/readme/osCASH-CRITICAL-FIXES.md
